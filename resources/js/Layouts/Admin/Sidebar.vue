@@ -30,7 +30,7 @@ import NavLink from '@/Components/NavLink.vue';
                 
 
 
-                <!-- <li>
+                <li>
                     <NavLink :href="route('admin.categories')" :active="route().current('admin.categories')"
                         class="flex w-[200px] text-[16px] py-2 items-start justify-start text-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 group" :class="{ 'active': route().current('admin.categories') }"> 
                         <span class="">
@@ -38,7 +38,7 @@ import NavLink from '@/Components/NavLink.vue';
                             Category
                         </span>
                     </NavLink>
-                </li> -->
+                </li>
 
                 <!-- <li>
                     <NavLink :href="route('admin.subcategories')" :active="route().current('admin.subcategories')"
