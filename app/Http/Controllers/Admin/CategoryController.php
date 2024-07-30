@@ -9,13 +9,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
+
 use Inertia\Inertia;
 
 
 class CategoryController extends Controller
 {
     public function Index(){
-        $categories = Category::latest()->get();
+        $categories = Category::latest()->paginate(3);
         return Inertia::render('Admin/Category/Index', ['categories' => $categories]);
     }
 

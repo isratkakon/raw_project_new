@@ -496,7 +496,7 @@
                    </div>
                  </a>
                  <a
-                   href="#"
+                   href="products"
                    class="block p-4 text-center rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 group"
                  >
                    <svg

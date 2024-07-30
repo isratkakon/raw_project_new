@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SubCategoryController;
+use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Foundation\Application;
@@ -20,12 +22,7 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Home/HomePage', [
-        
-    ]);
-});
-
+Route::get('/', [HomeController::class, 'HomePage']);
 
 
 
@@ -63,6 +60,16 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('admin/subcategory/edit/{subcategory}', [SubCategoryController::class, 'SubCategoryEdit'])->name('subcategory.edit');
     Route::put('admin/subcategory/update/{subcategory}', [SubCategoryController::class, 'SubCategoryUpdate'])->name('subcategory.update');
     Route::delete('admin/subcategory/delete/{subcategory}', [SubCategoryController::class, 'SubCategoryDelete'])->name('subcategory.delete');
+
+
+    //product
+     
+    Route::get('admin/products', [ProductController::class, 'Index'])->name('admin.products');
+    Route::get('admin/product/create', [ProductController::class, 'ProductCreate'])->name('product.create');
+    Route::post('admin/product/store', [ProductController::class, 'ProductStore'])->name('product.store');
+    Route::get('admin/product/edit/{product}', [ProductController::class, 'ProductEdit'])->name('product.edit');
+    Route::put('admin/product/update/{product}', [ProductController::class, 'ProductUpdate'])->name('product.update');
+    Route::delete('admin/product/delete/{product}', [ProductController::class, 'ProductDelete'])->name('product.delete');
 });
 
 

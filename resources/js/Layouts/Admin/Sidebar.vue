@@ -49,6 +49,16 @@ import NavLink from '@/Components/NavLink.vue';
                         </span>
                     </NavLink>
                 </li>
+
+                <li>
+                    <NavLink :href="route('admin.products')" :active="route().current('admin.products')"
+                        class="flex w-[200px] text-[16px] py-2 items-start justify-start text-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 group" :class="{ 'active': route().current('admin.products') }"> 
+                        <span class="">
+                            <i class="fa-solid fa-list mr-2 "></i>
+                           Product
+                        </span>
+                    </NavLink>
+                </li>
             </ul>
         </div>
     </aside>

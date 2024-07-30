@@ -69,7 +69,7 @@ const deleteCategory = (id) => {
                         </thead>
 
                         <tbody>
-                            <tr v-for="category in categories" :key="category.id" class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                            <tr v-for="category in categories.data" :key="category.id" class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"> {{ category.id }} </th>
 
                                 <td class="px-6 py-4"> {{ category.category_name }}</td>
@@ -90,6 +90,28 @@ const deleteCategory = (id) => {
                             </tr>
                         </tbody>
                     </table>
+                </div>
+
+                <div class="flex items-center justify-start gap-3 mt-4">
+                  <button 
+                  @click="router.get(categories.prev_page_url)"
+                  :disabled="!categories.prev_page_url"
+                  class="px-5 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:opacity-50"
+                  >
+                    &larr; Previous
+                  </button>
+
+                  <span>
+                    Page {{ categories.current_page }} of {{ categories.last_page }}
+                  </span>
+
+                  <button 
+                  @click="router.get(categories.next_page_url)"
+                  :disabled="!categories.next_page_url"
+                  class="px-5 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:opacity-50"
+                  >
+                  Next &rarr;
+                  </button>
                 </div>
             </div>
         </div>
